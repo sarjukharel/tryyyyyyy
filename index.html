@@ -103,7 +103,7 @@
       <a class="assignment-box" href="https://sarjukharel.github.io/assignment-second/">CLI Dungeon Map</a>
       <a class="assignment-box" href="#">Assignment 3</a>
       <a class="assignment-box" href="#">Assignment 4</a>
-      <a class="assignment-box" href="#">Assignment 5</a>
+      <a class="assignment-box" href="https://sarjukharel.github.io/sarjucrypto/">Cryptography Project </a>
       <a class="assignment-box" href="#">Assignment 6</a>
       <a class="assignment-box" href="#">Assignment 7</a>
       <a class="assignment-box" href="#">Assignment 8</a>
