@@ -104,7 +104,7 @@
       <a class="assignment-box" href="https://sarjukharel.github.io/library/">Virtual Library</a>
       <a class="assignment-box" href="#">Assignment 4</a>
       <a class="assignment-box" href="https://sarjukharel.github.io/sarjucrypto/">Cryptography Project </a>
-      <a class="assignment-box" href="ttps://sarjukharel.github.io/hif-lumen/">HIF-Lumen</a>
+      <a class="assignment-box" href="https://sarjukharel.github.io/hif-lumen/">HIF-Lumen</a>
       <a class="assignment-box" href="#">Assignment 7</a>
       <a class="assignment-box" href="#">Assignment 8</a>
       <a class="assignment-box" href="#">Assignment 9</a>
