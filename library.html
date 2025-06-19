@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Library Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; background-color: #f9f9f9; }
+    h1, h2, h3 { color: #333; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; }
+    th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
+    th { background-color: #eee; }
+    section { margin-bottom: 3rem; }
+    .upload-box { border: 2px dashed #888; padding: 1rem; background: #fff; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Virtual Library Database Report</h1>
+
+  <section>
+    <h2>Objective</h2>
+    <p>To understand the fundamentals of databases and their real-world applications by constructing a functional virtual library using CSV files and spreadsheet-based relationships.</p>
+  </section>
+
+  <section>
+    <h2>Key Skills Demonstrated</h2>
+    <ul>
+      <li>Spreadsheet creation and manipulation</li>
+      <li>Data structure design</li>
+      <li>Establishing relationships using primary keys (PK) and foreign keys (FK)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Initial Task</h2>
+    <p>Create and validate CSV files with structured data for a virtual library system. The data must include:</p>
+    <ul>
+      <li>A books table with unique identifiers.</li>
+      <li>An authors table with more than two columns.</li>
+      <li>A transactions table with more than four columns.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Tables Created</h2>
+
+    <h3>1. MAIN LIBRARY - SHEET1 (Books Table)</h3>
+    <table>
+      <tr><th>book_ID (PK)</th><th>title</th><th>author</th><th>genre</th><th>publication_date</th><th>available</th><th>last_checkout_date</th></tr>
+      <tr><td>1</td><td>Pride and Prejudice</td><td>Jane Austen</td><td>Classics</td><td>1813</td><td>true</td><td>#######</td></tr>
+      <tr><td>2</td><td>Moby Dick</td><td>Herman Melville</td><td>Classics</td><td>1851</td><td>false</td><td>#######</td></tr>
+      <tr><td>3</td><td>1984</td><td>George Orwell</td><td>Classics</td><td>1949</td><td>true</td><td>#######</td></tr>
+      <tr><td>4</td><td>To Kill a Mockingbird</td><td>Harper Lee</td><td>Classics</td><td>1960</td><td>false</td><td>#######</td></tr>
+      <tr><td>5</td><td>The Great Gatsby</td><td>F. Scott Fitzgerald</td><td>Classics</td><td>1925</td><td>true</td><td>#######</td></tr>
+    </table>
+
+    <h3>2. AUTHOR SPREADSHEETS - SHEET1 (Authors Table)</h3>
+    <table>
+      <tr><th>author (PK)</th><th>author_ID</th><th>nationality</th></tr>
+      <tr><td>Jane Austen</td><td>1</td><td>British</td></tr>
+      <tr><td>Herman Melville</td><td>2</td><td>American</td></tr>
+      <tr><td>George Orwell</td><td>3</td><td>British</td></tr>
+      <tr><td>Harper Lee</td><td>4</td><td>American</td></tr>
+      <tr><td>F. Scott Fitzgerald</td><td>5</td><td>American</td></tr>
+      <tr><td>E.B. White</td><td>6</td><td>American</td></tr>
+      <tr><td>Erika Seda</td><td>7</td><td>American</td></tr>
+    </table>
+
+    <h3>3. TRANSACTIONS - SHEET1 (Transactions Table)</h3>
+    <table>
+      <tr><th>transaction_ID (PK)</th><th>borrower_ID</th><th>book_ID (FK)</th><th>checkout_date</th><th>return_date</th></tr>
+      <tr><td>1</td><td>2</td><td>1</td><td>2025-03-10</td><td>2025-03-22</td></tr>
+      <tr><td>2</td><td>4</td><td>2</td><td>2025-03-11</td><td>NULL</td></tr>
+      <tr><td>3</td><td>3</td><td>2</td><td>2025-03-12</td><td>2025-03-25</td></tr>
+      <tr><td>4</td><td>5</td><td>3</td><td>2025-03-13</td><td>NULL</td></tr>
+      <tr><td>5</td><td>5</td><td>4</td><td>2025-03-14</td><td>2025-03-27</td></tr>
+      <tr><td>6</td><td>2</td><td>3</td><td>2025-03-15</td><td>NULL</td></tr>
+      <tr><td>7</td><td>3</td><td>5</td><td>2025-03-16</td><td>2025-03-29</td></tr>
+      <tr><td>8</td><td>4</td><td>8</td><td>2025-03-17</td><td>NULL</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Data Relationships (Foreign Keys)</h2>
+    <ul>
+      <li><strong>book_ID</strong> in <em>Transactions Table</em> references <strong>book_ID</strong> in <em>Main Library Table</em>.</li>
+      <li><strong>author</strong> in <em>Main Library Table</em> references <strong>author</strong> in <em>Author Table</em>.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Identified Issues & Improvements</h2>
+    <ul>
+      <li>Original data lacked normalization. Data was restructured into relational tables.</li>
+      <li>Primary and foreign keys ensure data integrity.</li>
+      <li><code>last_checkout_date</code> shows as '#######', likely a spreadsheet formatting issue.</li>
+      <li>Recommended to add a <em>Borrower Table</em> for detailed user tracking.</li>
+    </ul>
+  </section>
+
+<section>
+  <h2>Screenshot Upload</h2>
+  <div class="upload-box">
+    <p><strong>CSV Visualizer Table Screenshot</strong></p>
+    <button onclick="window.open('https://drive.google.com/file/d/1kmkWTjdAkopG8R5bG-QyMY1j_zw3UTGO/view?usp=drive_link', '_blank')" style="padding: 0.75rem 1.5rem; background-color: #4CAF50; color: white; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer;">
+  CSV Visualizer Table Screenshot
+</button>
+
+
+  <section>
+    <h2>Extra Credit: Sample Queries</h2>
+    <ul>
+      <li>List all books currently checked out.</li>
+      <li>Show all books written by British authors.</li>
+      <li>Identify books not returned and the borrowers who have them.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Conclusion</h2>
+    <p>This virtual library project highlights the power of relational databases in organizing, managing, and querying real-world data efficiently.</p>
+  </section>
+
+</body>
+</html>
