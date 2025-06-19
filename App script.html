@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Apps Script Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #4285f4;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #ea4335;
+            margin: 25px 0 15px 0;
+            font-size: 1.5em;
+            border-left: 4px solid #ea4335;
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: #34a853;
+            margin: 20px 0 10px 0;
+            font-size: 1.2em;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .intro {
+            background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 2px solid #4285f4;
+        }
+
+        .five-w-section {
+            background: linear-gradient(45deg, #fef3c7, #fde68a);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .five-w-item {
+            margin: 15px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            border-left: 4px solid #fbbc04;
+        }
+
+        .uses-section {
+            background: linear-gradient(45deg, #dbeafe, #bfdbfe);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .uses-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .uses-list li {
+            background: rgba(255, 255, 255, 0.8);
+            margin: 8px 0;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 4px solid #4285f4;
+            transition: transform 0.2s ease;
+        }
+
+        .uses-list li:hover {
+            transform: translateX(5px);
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .pros, .cons {
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .pros {
+            background: linear-gradient(45deg, #d1fae5, #a7f3d0);
+            border: 2px solid #34a853;
+        }
+
+        .cons {
+            background: linear-gradient(45deg, #fee2e2, #fecaca);
+            border: 2px solid #ea4335;
+        }
+
+        .pros ul, .cons ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pros li, .cons li {
+            background: rgba(255, 255, 255, 0.7);
+            margin: 8px 0;
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        .how-it-works {
+            background: linear-gradient(45deg, #f3e8ff, #e9d5ff);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .feynman-section {
+            background: linear-gradient(45deg, #fef7cd, #fde047);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid #eab308;
+        }
+
+        .feynman-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feynman-list li {
+            background: rgba(255, 255, 255, 0.8);
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 4px solid #eab308;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e5e7eb;
+        }
+
+        .nav-button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            min-width: 150px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .chatgpt-button {
+            background: linear-gradient(45deg, #10b981, #059669);
+            color: white;
+        }
+
+        .chatgpt-button:hover {
+            background: linear-gradient(45deg, #059669, #047857);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .ccg-button {
+            background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+            color: white;
+        }
+
+        .ccg-button:hover {
+            background: linear-gradient(45deg, #7c3aed, #6d28d9);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+            
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-button {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>What is Google Apps Script?</h1>
+        
+        <div class="intro">
+            <p>Google Apps Script (AS) is a cloud-based scripting language for automating tasks and extending the functionality of Google Workspace apps like Sheets, Docs, Forms, Slides, Gmail, and more. It uses JavaScript.</p>
+        </div>
+
+        <div class="five-w-section">
+            <h2>5W Questions to Understand AS</h2>
+            
+            <div class="five-w-item">
+                <h3>1. What is AS?</h3>
+                <p>A scripting tool built on JavaScript that lets users automate tasks and build simple apps within Google Workspace.</p>
+            </div>
+
+            <div class="five-w-item">
+                <h3>2. Who uses AS?</h3>
+                <p>Students, teachers, admins, businesses, and developers who want to simplify workflows and customize Google apps.</p>
+            </div>
+
+            <div class="five-w-item">
+                <h3>3. When should you use AS?</h3>
+                <p>When performing repetitive tasks in Google Sheets, Forms, or Docs — like calculating grades or sending auto emails.</p>
+            </div>
+
+            <div class="five-w-item">
+                <h3>4. Where does AS work?</h3>
+                <p>Inside Google Sheets, Docs, Slides, Forms, Gmail, Calendar, and Drive.</p>
+            </div>
+
+            <div class="five-w-item">
+                <h3>5. Why use AS?</h3>
+                <p>Because it's free, easy to learn, built into Google Workspace, and powerful for automating day-to-day tasks.</p>
+            </div>
+        </div>
+
+        <div class="uses-section">
+            <h2>Potential (Creative) Uses of Apps Script</h2>
+            <ul class="uses-list">
+                <li>Auto-send reminder emails to students</li>
+                <li>Generate reports from form responses</li>
+                <li>Create custom spreadsheet functions (e.g., GPA calculator)</li>
+                <li>Set up email alerts when certain scores are entered</li>
+                <li>Turn a Google Sheet into a mini web app</li>
+                <li>Post new Google Form responses to Discord</li>
+                <li>Automatically update class attendance in a calendar</li>
+            </ul>
+        </div>
+
+        <div class="pros-cons">
+            <div class="pros">
+                <h2>Pros:</h2>
+                <ul>
+                    <li>Easy to use inside Google Workspace</li>
+                    <li>Based on JavaScript</li>
+                    <li>No setup or installation required</li>
+                    <li>Supports automation and custom functions</li>
+                    <li>Enables web app and API integrations</li>
+                </ul>
+            </div>
+
+            <div class="cons">
+                <h2>Cons:</h2>
+                <ul>
+                    <li>UI customization is limited</li>
+                    <li>Slower performance on large datasets</li>
+                    <li>Harder to debug errors</li>
+                    <li>Requires permissions and scopes</li>
+                    <li>Not ideal for complex enterprise apps</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="how-it-works">
+            <h2>How It Works</h2>
+            <ul class="uses-list">
+                <li><strong>Write JavaScript functions</strong></li>
+                <li><strong>Use triggers</strong> (like timers or form submissions)</li>
+                <li><strong>Connect APIs</strong> (external services)</li>
+                <li><strong>Create custom Sheet functions</strong></li>
+                <li><strong>Build web apps</strong></li>
+            </ul>
+        </div>
+
+        <div class="feynman-section">
+            <h2>Teach It Like Feynman</h2>
+            <ul class="feynman-list">
+                <li><strong>Explain it simply:</strong> "It's like giving your Google apps a brain."</li>
+                <li><strong>Use analogies:</strong> "Robot assistants for your spreadsheets."</li>
+                <li><strong>Practice:</strong> Build real mini-projects.</li>
+                <li><strong>Test others:</strong> If they struggle, re-explain it better.</li>
+                <li><strong>Fill gaps:</strong> What you can't teach simply, study again.</li>
+            </ul>
+        </div>
+
+        <div class="button-container">
+            <button class="nav-button chatgpt-button" onclick="handleButtonClick('chatgpt1')">ChatGPT Chats</button>
+            <button class="nav-button chatgpt-button" onclick="handleButtonClick('chatgpt2')">ChatGPT Chats</button>
+            <button class="nav-button ccg-button" onclick="handleButtonClick('ccg')">CCG</button>
+        </div>
+    </div>
+
+    <script>
+        // ADD YOUR LINKS HERE - Simply replace the empty quotes with your URLs
+        let buttonLinks = {
+            chatgpt1: 'https://chatgpt.com/canvas/shared/6805cc6c8e6881918d856130c2a1694b',
+            chatgpt2: 'https://chatgpt.com/share/682f45a6-45a8-8000-acda-50e4aed62536',
+            ccg: 'https://sarjukharel.github.io/tryyyyyyy/' // Add your CCG link here
+        };
+
+        function handleButtonClick(buttonId) {
+            const link = buttonLinks[buttonId];
+            if (link && link.trim() !== '') {
+                window.open(link, '_blank');
+            } else {
+                alert(`No link set for this button yet. Please add your link in the JavaScript code above.`);
+            }
+        }
+    </script>
+</body>
+</html>
