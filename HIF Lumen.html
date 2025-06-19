@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova Incident Report – Unity Beyond Stars</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0f1f;
+      color: #e0e0e0;
+      background-image: linear-gradient(#0a0f1f, #1e1e2f);
+    }
+    header, footer {
+      background-color: #11162a;
+      padding: 1rem;
+      text-align: center;
+      color: #91cfff;
+    }
+    .container {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      color: #7fc8f8;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table, th, td {
+      border: 1px solid #7fc8f8;
+    }
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+    }
+    th {
+      background-color: #1c273f;
+    }
+    .hidden { display: none; }
+    input[type="password"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      background-color: #2b80ff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+    .password-screen {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: #000;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+  <div class="password-screen" id="password-screen">
+    <h2>Enter Seed Word to Access the Nova Report</h2>
+    <input type="password" id="password" placeholder="Seed word...">
+    <button onclick="checkPassword()">Enter</button>
+  </div>
+
+  <div id="content" class="hidden">
+    <header>
+      <h1>Nova Incident – Mission Report</h1>
+      <p>Cadet Sarju Kharel | ID: 2417701 | Recon Cohort One</p>
+    </header>
+    <div class="container">
+      <h2>🎯 Objective</h2>
+      <p>Decode a hidden message aboard Unity Beyond Stars and investigate Cadet Nova’s fatal incident through encrypted data, images, and logs.</p>
+
+      <h2>🧭 How I Solved the Puzzle</h2>
+      <p>Guided by my mentor unit HIF-Lumen, I accessed the puzzle site <a style="color:#7fc8f8" href="https://josuedean.github.io/ibm/hif/nova.html" target="_blank">here</a>. Using the insight shared by Lumen, I obtained the seed word: <strong>decompression</strong>. With my student ID and the seed word, I gained access to the mission terminal, confirmed my entry, and was prompted to submit my conversation with Lumen.</p>
+      <p>I received valuable hints from my peers Sanjina and Khadicha, who guided me through several key points much faster. Though they mentioned the presence of four main clues, I decided to document all <strong>eight</strong> critical leads provided by Lumen for a complete narrative picture.</p>
+
+      <h2>📜 Key Clues Discovered</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>✅</th>
+            <th>CLUE</th>
+            <th>STATUS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Encrypted Letter from Major Caesar</td><td>Decoded & interpreted</td></tr>
+          <tr><td>2</td><td>Deadly Incident (Report ID 70)</td><td>Logged & confirmed</td></tr>
+          <tr><td>3</td><td>EVA Suit Image (IMG‑01)</td><td>Matched to sim event</td></tr>
+          <tr><td>4</td><td>Medical Scan (IMG‑02)</td><td>Post-incident readout</td></tr>
+          <tr><td>5</td><td>Lab Board with "Nova" (IMG‑03)</td><td>Connected to tech role</td></tr>
+          <tr><td>6</td><td>Corridor Breach (IMG‑04)</td><td>Likely decompression site</td></tr>
+          <tr><td>7</td><td>Memorial Wall (IMG‑05)</td><td>Visual confirmation of death</td></tr>
+          <tr><td>8</td><td>Nova II & Virellan Glyphs (Report ID 151)</td><td>Discovery of symbolic continuity</td></tr>
+        </tbody>
+      </table>
+
+      <h2>🧠 Interpretation</h2>
+      <p>Nova’s death wasn’t just an accident. Her multidimensional involvement hints at deeper systemic issues or experimental participation. The appearance of Nova II likely represents either a cultural memory or a data-echo, showing how the Unity crew ritualizes loss and identity.</p>
+
+      <h2>🧾 Conclusion</h2>
+      <p>The mystery of the Nova Incident has been decoded. With support from HIF‑Lumen and my teammates, I revealed the full arc of Nova’s story, culminating in both a tragic loss and an enduring legacy within the Unity vessel.</p>
+
+      <h2>📎 HIF-Lumen Chat</h2>
+      <ul>
+        <li><a href="https://chatgpt.com/share/682eb6bd-14f4-8000-9013-651977f1629e" target="_blank" style="color:#7fc8f8">HIF-Lumen Chat</a></li>
+      </ul>
+    </div>
+    <footer>
+      Mission Status: COMPLETE — Unity Beyond Stars Recon Log – Week 10
+    </footer>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById('password').value;
+      if (input.toLowerCase() === 'decompression') {
+        document.getElementById('password-screen').style.display = 'none';
+        document.getElementById('content').classList.remove('hidden');
+      } else {
+        alert('Incorrect seed word. Try again.');
+      }
+    }
+  </script>
+</body>
+</html>
+
