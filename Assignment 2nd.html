@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dungeon Crawl CLI Report</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.4/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .header-meta {
+            margin-top: 15px;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        section {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .section-icon {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        ul, ol {
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .highlight {
+            background-color: #f9f9f9;
+            border-left: 3px solid #2c3e50;
+            padding: 10px;
+            margin: 15px 0;
+        }
+        .code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        strong {
+            color: #2c3e50;
+        }
+        .mermaid {
+            margin: 20px 0;
+        }
+        .treasure-link {
+            display: block;
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9e79f;
+            border: 2px dashed #f39c12;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #7d6608;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .treasure-link:hover {
+            background-color: #f7dc6f;
+            transform: scale(1.02);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .special-mention {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        .cmd-path {
+            font-family: 'Courier New', Courier, monospace;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        .treasure-content {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre;
+            overflow-x: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🧙‍♂️ Dungeon Crawl CLI Report</h1>
+        <div class="header-meta">
+            <p><strong>Name:</strong> Sarju Kharel<br>
+            <strong>Course:</strong> Digital Literacy<br>
+            <strong>Assignment:</strong> Dungeon Crawl CLI - Final Deliverables</p>
+        </div>
+    </header>
+
+    <section>
+        <h2><span class="section-icon">🗂️</span>Issues Encountered During Playthrough</h2>
+        <ol>
+            <li>
+                <strong>Command Misuse</strong><br>
+                I mistakenly typed <span class="code">/A</span> on its own instead of using it properly as an option with <span class="code">dir</span>. It gave me an error:<br>
+                <div class="highlight">
+                    <span class="code">'a' is not recognized as an internal or external command...</span>
+                </div>
+                I learned to always include valid commands before options.
+            </li>
+            <li>
+                <strong>Case Sensitivity Confusion</strong><br>
+                I got stuck trying to enter the <span class="code">ForbiddenLibrary</span> folder using <span class="code">cd Forbiddenlibrary</span>. I didn't realize the command line cared about capitalization in this scenario.
+            </li>
+            <li>
+                <strong>Curse Puzzle Challenge</strong><br>
+                Figuring out how to get past the cursed book took some experimenting. Eventually, I realized the <span class="code">attrib -elim</span> command worked like an emergency counter-curse. That felt like a satisfying discovery!
+            </li>
+        </ol>
+    </section>
+
+    <section>
+        <h2><span class="section-icon">🔍</span>Further Research Conducted</h2>
+        <ul>
+            <li>I reviewed basic command-line navigation, especially around file moving (<span class="code">move</span>), reading content (<span class="code">type</span>), and visualizing file structure (<span class="code">tree</span>).</li>
+            <li>Practiced using <span class="code">attrib</span> and <span class="code">findstr</span> to understand how they might work in a narrative-based environment like this.</li>
+            <li>Checked the syntax of common commands using the built-in <span class="code">help</span> and trial-and-error testing.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2><span class="section-icon">🧑‍🤝‍🧑</span>Help I Got</h2>
+        <ul>
+            <li><strong class="special-mention">My Brother Aarogya</strong> helped me remember how to use <span class="code">move</span> and how to navigate directories efficiently.</li>
+            <li><strong class="special-mention">My Friend Sanjina</strong> helped me brainstorm solutions for the cursed book puzzle. Together, we figured out that <span class="code">attrib -elim</span> would clear the way!</li>
+            <li><strong class="special-mention">Explanation on How to Complete the Assignment</strong>: I found a helpful guide at <a href="https://chatgpt.com/share/67fe783c-3cdc-8000-a973-4a66eac10063" target="_blank">https://chatgpt.com/share/67fe783c-3cdc-8000-a973-4a66eac10063</a> which provided clear instructions and examples on how to navigate the CLI dungeon and complete all required objectives.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2><span class="section-icon">🌟</span>Overall Experience</h2>
+        <p>This was one of the most entertaining and unique class assignments I've ever done. The fusion of narrative design with command-line exploration made it feel like I was in an old-school text-based adventure game.</p>
+        
+        <p><strong>Highlights:</strong></p>
+        <ul>
+            <li>Moving the <strong>StoneKey</strong> and unlocking the <strong>Inner Keep</strong></li>
+            <li>Solving the puzzle to eliminate the <strong>CursedBook</strong></li>
+            <li>Discovering the <strong>ASCII Chalice</strong> and reaching the end!</li>
+        </ul>
+        
+        <p>I especially enjoyed how each file and directory felt like it had lore behind it. The immersion was great — I would love to do more CLI-based adventures in the future or even build my own.</p>
+    </section>
+
+    <section>
+        <h2><span class="section-icon">🎁</span>Cool Stuff I Thought of (All by Myself 😎)</h2>
+        <ul>
+            <li><strong>Mini-Boss Battles</strong> via command challenges (e.g., <span class="code">findstr</span> riddles)</li>
+            <li><strong>Hidden commands</strong> that unlock secret files or rooms</li>
+            <li><strong>Inventory tracking</strong> with an <span class="code">Inventory.txt</span> file that updates dynamically as you pick up items like keys</li>
+            <li><strong>CLI-based Traps</strong> that trigger if you mistype commands (e.g., trying to <span class="code">del</span> a cursed object opens a warning)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2><span class="section-icon">🗺️</span>CLI Dungeon Map</h2>
+        <div class="mermaid">
+            graph TD
+                A[FortressLore] --> B[FortressLore.txt]
+                A --> C[README.md]
+                A --> D[EntranceGrounds]
+                D --> E[Gatehouse.info]
+                D --> F[SidePath]
+                F --> G[DiscardedNote.txt]
+                D --> H[OuterWalls]
+                H --> I[CrumblingTower.look]
+                H --> J[StorageRoom]
+                J --> K[StoneKey.key]
+                H --> L[InnerKeep]
+                L --> M[GreatHall.info]
+                L --> N[OldRecords.tome]
+                L --> O[StoneKey.key]
+                L --> P[OpenedDoor]
+                P --> Q[ForbiddenLibrary]
+                Q --> R[Vault]
+                Q --> S[ReadingChamber]
+                S --> T[Treasure.txt]
+
+                %% Styling
+                classDef rootDir fill:#f9d5e5,stroke:#333,stroke-width:2px,color:#333,font-weight:bold
+                classDef mainDir fill:#b8e0d2,stroke:#333,stroke-width:1px,color:#333,font-weight:bold
+                classDef subDir fill:#d6eaf8,stroke:#333,stroke-width:1px,color:#333
+                classDef specialDir fill:#fdebd0,stroke:#333,stroke-width:1px,color:#333
+                classDef txtFile fill:#eaeded,stroke:#333,stroke-width:1px,color:#333,font-style:italic
+                classDef infoFile fill:#d5f5e3,stroke:#333,stroke-width:1px,color:#333,font-style:italic
+                classDef keyFile fill:#fcf3cf,stroke:#333,stroke-width:1px,color:#333,font-weight:bold
+                classDef otherFile fill:#ebdef0,stroke:#333,stroke-width:1px,color:#333,font-style:italic
+                classDef treasureFile fill:#f9e79f,stroke:#333,stroke-width:2px,color:#333,font-weight:bold
+
+                %% Applying styles
+                class A rootDir
+                class D,H,L,Q mainDir
+                class F,J,P,S subDir
+                class R specialDir
+                class B,C,G txtFile
+                class E,M infoFile
+                class K,O keyFile
+                class I,N otherFile
+                class T treasureFile
+        </div>
+        
+        <h3>Final Treasure Discovery</h3>
+        <div class="cmd-path">C:\EntranceGrounds\OuterWalls\InnerKeep\OpenedDoor\ForbiddenLibrary\ReadingChamber\> type Treasure.txt</div>
+        <div class="treasure-content">You have discovered the ASCII Chalice!
+Follow this link to claim your reward: https://your_teacher_s_site/treasure.html</div>
+        
+        <a href="https://josuedean.github.io/ibm/treasure.html" class="treasure-link" target="_blank">🏆 CLICK HERE TO CLAIM YOUR REWARD! 🏆</a>
+    </section>
+
+    <section>
+        <h2><span class="section-icon">🧾</span>Suggested Structure Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Area</th>
+                    <th>Subdirectory / File</th>
+                    <th>Description / Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>C:\</code></td>
+                    <td>FortressLore.txt</td>
+                    <td>Backstory and context for the dungeon</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>README.md</td>
+                    <td>Introduction and objectives</td>
+                </tr>
+                <tr>
+                    <td><code>EntranceGrounds\</code></td>
+                    <td>Gatehouse.info</td>
+                    <td>First info file you can check</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>SidePath\DiscardedNote.txt</td>
+                    <td>Optional lore clue about the StoneKey</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>OuterWalls\CrumblingTower.look</td>
+                    <td>A visual description of a side area (no action needed)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>OuterWalls\StorageRoom\StoneKey.key</td>
+                    <td>Key needed to unlock the Inner Keep</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>OuterWalls\InnerKeep</td>
+                    <td>Main interior of the dungeon</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>├── GreatHall.info</td>
+                    <td>Lore file</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>├── OldRecords.tome</td>
+                    <td>Background worldbuilding</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>├── StoneKey.key</td>
+                    <td>Moved here to unlock the door</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>└── OpenedDoor\</td>
+                    <td>Path unlocked after using the StoneKey</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;└── ForbiddenLibrary\</td>
+                    <td>Advanced puzzle area</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Vault</td>
+                    <td>Not accessed in this run (maybe hidden content?)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── ReadingChamber\Treasure.txt</td>
+                    <td>Final reward – ASCII Chalice</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <p>Submitted by Sarju Kharel • Digital Literacy Dungeon Crawl CLI Final Assignment</p>
+    </footer>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose'
+        });
+    </script>
+</body>
+</html>
