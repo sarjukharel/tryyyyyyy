@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Investigation Report - Sarju Kharel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    .person {
+      margin-bottom: 20px;
+    }
+    .conclusion {
+      font-weight: bold;
+      color: #c0392b;
+    }
+    a {
+      color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <h1>INVESTIGATION REPORT</h1>
+  <p><strong>Sarju Kharel (2417701)</strong></p>
+  <h2>Introduction</h2>
+  <p>This report checks if three people are real or fake based on online information.</p>
+
+  <div class="person">
+    <h2>1. Pieter Mouthaan</h2>
+    <p>
+      Pieter Mouthaan claims to be a developer and entrepreneur from the Netherlands, known for creating Photo AI.
+      However, historical records only show a Pieter Mouthaan born in 1836 and another in 1859 in Gravenmoer,
+      Netherlands—both from the 19th century, making them unlikely to be the modern developer.
+    </p>
+    <p>
+      Additionally, a company called WeSmile, based in Eindhoven, Netherlands, focuses on AI photobooths. Its
+      co-founders are Yap Yung Hui and Juliusz Dokrzewski, but there is no mention of Pieter Mouthaan.
+    </p>
+    <p class="conclusion">
+      There is no current information confirming the existence of a modern developer named Pieter Mouthaan linked to Photo AI.
+      This raises doubts about the authenticity of this identity.
+    </p>
+  </div>
+
+  <div class="person">
+    <h2>2. Michael Moore</h2>
+    <p><strong>Claimed Identity:</strong> A business owner in Manhattan, widower with family in Spain, and owner of a German Shepherd named Jack.</p>
+    <p>
+      A search for “Michael Moore business owner Manhattan widower family in Spain German Shepherd Jack” only showed
+      results for the well-known filmmaker Michael Moore, who does not match this description.
+    </p>
+    <p>
+      No reliable information, such as a LinkedIn profile, business website, or news article, was found to confirm this identity.
+    </p>
+    <p class="conclusion">
+      Since no specific or matching online information was found, it is likely that this Michael Moore's identity is either false or misrepresented.
+    </p>
+  </div>
+
+  <div class="person">
+    <h2>3. Kenneth Dean</h2>
+    <p><strong>Claimed Identity:</strong> Vice President in real estate, living in Washington, D.C.</p>
+    <p>
+      No reliable information confirms that Kenneth Dean holds a VP position in real estate in Washington, D.C.
+      A search for “Kenneth Dean VP real estate Washington, D.C.” brought up some professional profiles, including one
+      listing him as an IT Administrator for S.C. Herman & Associates in Washington, D.C.
+    </p>
+    <p class="conclusion">
+      There is no clear evidence linking Kenneth Dean to a Vice President role in real estate in Washington, D.C but includes at least one verifiable profile suggesting he is a real person.
+    </p>
+  </div>
+
+  <h2>Overall Conclusion</h2>
+  <p>
+    After searching online, it seems likely that Pieter Mouthaan is not real, as his name is linked to AI-generated scams.
+    Michael Moore has very little online information, making it hard to confirm if he exists.
+    Kenneth Dean appears to be the most credible since there are some references to him, but there is still not enough solid proof about his background.
+  </p>
+  <p>
+    This research shows why it’s important to verify online identities. Many scammers create fake profiles to trick people,
+    so it’s always best to check sources and find real evidence before trusting someone online.
+  </p>
+
+  <p><a href="https://chatgpt.com/share/67d6eb75-71bc-8000-8bb4-1d54b211ccb8" target="_blank">View Shared Link</a></p>
+</body>
+</html>
