@@ -2,67 +2,141 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Wireshark Deep Dive by Sarju Kharel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wireshark Project - Sarju Kharel</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 text-gray-900 font-sans leading-relaxed tracking-wide p-6">
+<body class="bg-gray-50 text-gray-900 font-sans leading-relaxed tracking-wide">
 
-  <header class="bg-blue-800 text-white p-6 rounded shadow mb-6">
-    <h1 class="text-3xl font-bold">Wireshark Deep Dive Project</h1>
-    <p class="mt-1 text-sm">By Sarju Kharel</p>
+  <header class="bg-blue-900 text-white p-6 shadow">
+    <h1 class="text-3xl font-bold">Wireshark Deep Dive: Detecting Malicious Network Traffic</h1>
+    <p class="mt-2">Final Project Report by Sarju Kharel</p>
+    <p class="text-sm">🌐 <a href="https://sarjukharel.github.io/tryyyyyyy/" class="underline text-yellow-300">sarjukharel.github.io/tryyyyyyy</a></p>
+    <p class="text-sm">📽️ <a href="https://youtu.be/qTaOZrDnMzQ?si=Bq7QtMnAme_3CMxR" class="underline text-yellow-300">Watch Demo Video</a></p>
   </header>
 
-  <main class="max-w-4xl mx-auto">
-    <section class="mb-6">
-      <h2 class="text-2xl font-semibold">✅ Project Overview</h2>
-      <p>This project explores network packet capture and analysis using Wireshark and PyShark. It includes a script-based tool to detect SYN flood attacks and anomalies in `.pcap` files, along with a live webpage and documentation.</p>
+  <main class="p-6 max-w-4xl mx-auto space-y-10">
+
+    <section>
+      <h2 class="text-2xl font-bold">1. Idea Sourcing and Background</h2>
+      <p>This project was based on my Week 5 idea to do a deep dive into Wireshark and packet sniffing. My goal was to understand how cybersecurity professionals detect malicious traffic and build my own basic tools for analysis. I wanted to simulate threats and capture them using Wireshark, then analyze them using Python.</p>
     </section>
 
-    <section class="mb-6">
-      <h2 class="text-2xl font-semibold">🔧 Tool Scripts</h2>
+    <section>
+      <h2 class="text-2xl font-bold">2. Project Overview and Goals</h2>
+      <p>This project simulates SYN floods and port scans, captures `.pcap` traffic using Wireshark, and processes it using PyShark scripts. It aims to teach network-level analysis, threat detection, and documentation/presentation of results through a GitHub site and demo video.</p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold">3. PRD Summary and Stretch Goals</h2>
       <ul class="list-disc pl-6">
-        <li><a href="./detect_anomalies.py" class="text-blue-600 underline">detect_anomalies.py</a> – Detects abnormal SYN packet counts.</li>
-        <li><a href="./syn_flood_detection_tool.py" class="text-blue-600 underline">syn_flood_detection_tool.py</a> – Extended tool for DDoS/SYN flood detection and logging.</li>
+        <li>Use Wireshark to capture malicious patterns</li>
+        <li>Create scripts to detect threats from `.pcap` files</li>
+        <li>Simulate network scans using port scanner</li>
+        <li>Document the process, build a website, and record a walkthrough</li>
+        <li><strong>Stretch Goal:</strong> Real-time or batch analysis with Python</li>
       </ul>
     </section>
 
-    <section class="mb-6">
-      <h2 class="text-2xl font-semibold">🌐 Online Project Resources</h2>
+    <section>
+      <h2 class="text-2xl font-bold">4. Tools and Technologies Used</h2>
       <ul class="list-disc pl-6">
-        <li>🔗 <a href="https://github.com/sarjukharel/tryyyyyyy" class="text-blue-600 underline">GitHub Repository</a></li>
-        <li>📄 <a href="https://sarjukharel.github.io/tryyyyyyy/my%20assignments/Wiree.htm" class="text-blue-600 underline">Assignment Page (Wiree.htm)</a></li>
-        <li>🤖 <a href="https://chatgpt.com/share/684c395f-8930-8000-8777-a26b1e062803" class="text-blue-600 underline">ChatGPT Support Thread</a></li>
+        <li>Wireshark – Deep packet inspection</li>
+        <li>PyShark – Python wrapper for TShark</li>
+        <li>TShark – Command-line analysis</li>
+        <li>Python – Script building</li>
+        <li>Kali Linux – Simulated attack environment</li>
+        <li>GitHub – Project publishing</li>
+        <li>YouTube – Demo video hosting</li>
       </ul>
     </section>
 
-    <section class="mb-6">
-      <h2 class="text-2xl font-semibold">📽️ Demo Video</h2>
-      <iframe class="w-full aspect-video rounded" src="https://www.youtube.com/embed/qTaOZrDnMzQ?si=Bq7QtMnAme_3CMxR" frameborder="0" allowfullscreen></iframe>
-    </section>
-
-    <section class="mb-6">
-      <h2 class="text-2xl font-semibold">📂 How to Use the Tool</h2>
+    <section>
+      <h2 class="text-2xl font-bold">5. Project Implementation</h2>
       <ol class="list-decimal pl-6">
-        <li>Capture traffic with Wireshark and save it as <code>.pcap</code>.</li>
-        <li>Run the script using Python:
-          <pre class="bg-gray-200 p-3 rounded mt-2 text-sm">python detect_anomalies.py</pre>
-        </li>
-        <li>For advanced detection and logs, use:
-          <pre class="bg-gray-200 p-3 rounded mt-2 text-sm">python syn_flood_detection_tool.py</pre>
-        </li>
-        <li>Follow command-line prompts and review printed results or generated log files.</li>
+        <li><strong>Packet Capture:</strong> Simulated scans using Kali Linux tools, captured traffic with Wireshark.</li>
+        <li><strong>Script Building:</strong> Developed Python scripts to parse and alert on `.pcap` traffic.</li>
+        <li><strong>Documentation:</strong> Screenshots, explanations, and filtered examples included in the report.</li>
+        <li><strong>Publishing:</strong> Built this website and recorded a YouTube demo.</li>
       </ol>
     </section>
 
-    <section class="mb-6">
-      <h2 class="text-2xl font-semibold">📑 Summary</h2>
-      <p>This project demonstrates the power of open-source packet capture tools and basic Python scripting to understand and detect network-based anomalies. It helped me learn to work with Wireshark, PyShark, and basic security analysis methods.</p>
+    <section>
+      <h2 class="text-2xl font-bold">6. Code Explanation</h2>
+
+      <h3 class="text-xl font-semibold mt-4">port_scanner.py</h3>
+      <pre class="bg-gray-200 p-4 rounded text-sm overflow-auto">
+import socket
+
+target = input("Enter target IP: ")
+for port in range(20, 1025):
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.settimeout(0.5)
+    result = s.connect_ex((target, port))
+    if result == 0:
+        print(f"Port {port} is open")
+    s.close()
+      </pre>
+
+      <h3 class="text-xl font-semibold mt-4">network_analyzer.py</h3>
+      <pre class="bg-gray-200 p-4 rounded text-sm overflow-auto">
+import pyshark
+
+cap = pyshark.FileCapture('sample.pcap', display_filter='tcp.flags.syn==1 and tcp.flags.ack==0')
+
+syn_count = {}
+for pkt in cap:
+    src_ip = pkt.ip.src
+    syn_count[src_ip] = syn_count.get(src_ip, 0) + 1
+
+for ip, count in syn_count.items():
+    if count > 50:
+        print(f"[ALERT] Possible SYN flood from {ip}: {count} SYN packets")
+      </pre>
     </section>
+
+    <section>
+      <h2 class="text-2xl font-bold">7. Challenges and Reflection</h2>
+      <p>This was my first time using Wireshark and working with `.pcap` files. I found it very hard at first, but I learned a lot using ChatGPT and Claude AI. I now understand how SYN packets work and how a scanner or flood attack appears in packet logs. I also improved my coding, filtering, and documentation skills.</p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold">8. AI Assistance and Resources</h2>
+      <ul class="list-disc pl-6">
+        <li><a href="https://chatgpt.com/share/684c395f-8930-8000-8777-a26b1e062803" class="text-blue-600 underline">ChatGPT Conversation</a></li>
+        <li><a href="https://claude.ai/share/281c7144-b1cd-4678-8baf-12284f804cde" class="text-blue-600 underline">Claude AI Support</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold">9. How I Ensured Full Marks</h2>
+      <ul class="list-disc pl-6">
+        <li>✔️ Submitted idea and project overview</li>
+        <li>✔️ Wrote and uploaded PRD</li>
+        <li>✔️ Completed extension (packet analyzer script)</li>
+        <li>✔️ Uploaded documentation + screenshots</li>
+        <li>✔️ Built a complete GitHub Pages site</li>
+        <li>✔️ Recorded and submitted a demo video</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold">10. Submission Links</h2>
+      <ul class="list-disc pl-6">
+        <li>📁 GitHub Repo: <a href="https://github.com/sarjukharel/tryyyyyyy" class="text-blue-600 underline">github.com/sarjukharel/tryyyyyyy</a></li>
+        <li>🌐 Website: <a href="https://sarjukharel.github.io/tryyyyyyy/" class="text-blue-600 underline">sarjukharel.github.io/tryyyyyyy</a></li>
+        <li>📽️ Demo Video: <a href="https://youtu.be/qTaOZrDnMzQ?si=Bq7QtMnAme_3CMxR" class="text-blue-600 underline">Watch on YouTube</a></li>
+      </ul>
+
+      <div class="mt-4">
+        <iframe class="w-full aspect-video rounded shadow" src="https://www.youtube.com/embed/qTaOZrDnMzQ?si=Bq7QtMnAme_3CMxR" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="text-center text-sm text-gray-600 mt-10">
-    &copy; 2025 Sarju Kharel | Final Submission for Wireshark Packet Analysis Project
+  <footer class="bg-blue-900 text-white text-center py-4 mt-10">
+    &copy; 2025 Sarju Kharel | Final Project – Wireshark Network Analysis
   </footer>
 
 </body>
