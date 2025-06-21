@@ -110,24 +110,24 @@
         <div class="tool-card bg-gradient-to-br from-red-50 to-red-100 p-4 rounded-lg border border-red-200">
           <h3 class="font-semibold text-red-800 mb-2">🔍 Traffic Category Analyzer</h3>
           <p class="text-sm text-gray-700 mb-3">Categorizes network traffic by protocol and identifies patterns</p>
-          <a href="https://github.com/sarjukharel/tryyyyyyy/blob/main/traffic_category_analyzer.py" 
-             class="inline-block bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700 transition-colors">
+          <a href="#" onclick="showToolCode('traffic_analyzer')" 
+             class="inline-block bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700 transition-colors cursor-pointer">
             View Code →
           </a>
         </div>
         <div class="tool-card bg-gradient-to-br from-yellow-50 to-yellow-100 p-4 rounded-lg border border-yellow-200">
           <h3 class="font-semibold text-yellow-800 mb-2">⚠️ Anomaly Detection</h3>
           <p class="text-sm text-gray-700 mb-3">Detects unusual network behavior and traffic anomalies</p>
-          <a href="https://github.com/sarjukharel/tryyyyyyy/blob/main/detect_anomalies.py" 
-             class="inline-block bg-yellow-600 text-white px-3 py-1 rounded text-sm hover:bg-yellow-700 transition-colors">
+          <a href="#" onclick="showToolCode('anomaly_detector')" 
+             class="inline-block bg-yellow-600 text-white px-3 py-1 rounded text-sm hover:bg-yellow-700 transition-colors cursor-pointer">
             View Code →
           </a>
         </div>
         <div class="tool-card bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200">
           <h3 class="font-semibold text-purple-800 mb-2">🚨 SYN Flood Detector</h3>
           <p class="text-sm text-gray-700 mb-3">Specialized tool for detecting SYN flood attacks</p>
-          <a href="https://github.com/sarjukharel/tryyyyyyy/blob/main/syn_flood_detection_tool.py" 
-             class="inline-block bg-purple-600 text-white px-3 py-1 rounded text-sm hover:bg-purple-700 transition-colors">
+          <a href="#" onclick="showToolCode('syn_flood_detector')" 
+             class="inline-block bg-purple-600 text-white px-3 py-1 rounded text-sm hover:bg-purple-700 transition-colors cursor-pointer">
             View Code →
           </a>
         </div>
@@ -326,6 +326,418 @@ for ip, count in syn_count.items():
     <p class="text-sm">© 2025 Sarju Kharel | Final Project – Wireshark Network Analysis</p>
     <p class="text-xs text-gray-400 mt-1">Cybersecurity • Network Analysis • Threat Detection</p>
   </footer>
+
+  <!-- Modal for displaying tool code -->
+  <div id="codeModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 id="modalTitle" class="text-xl font-bold text-gray-800"></h3>
+          <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+        </div>
+        <div id="modalContent" class="bg-gray-900 text-green-400 p-4 rounded-lg overflow-x-auto">
+          <pre><code id="codeContent"></code></pre>
+        </div>
+        <div class="mt-4 text-sm text-gray-600">
+          <p><strong>Note:</strong> This is a sample implementation. You can create and upload the actual file to your GitHub repository.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const toolCode = {
+      'traffic_analyzer': {
+        title: 'Traffic Category Analyzer',
+        code: `import pyshark
+import collections
+from datetime import datetime
+
+def analyze_traffic_categories(pcap_file):
+    """
+    Analyzes network traffic by categorizing different types of protocols
+    and connection patterns.
+    """
+    print(f"Analyzing traffic from: {pcap_file}")
+    print("="*50)
+    
+    # Initialize counters
+    protocol_count = collections.defaultdict(int)
+    port_count = collections.defaultdict(int)
+    ip_communications = collections.defaultdict(int)
+    
+    try:
+        cap = pyshark.FileCapture(pcap_file)
+        packet_count = 0
+        
+        for packet in cap:
+            packet_count += 1
+            
+            # Protocol analysis
+            if hasattr(packet, 'transport_layer'):
+                protocol = packet.transport_layer
+                protocol_count[protocol] += 1
+                
+                # Port analysis for TCP/UDP
+                if protocol in ['TCP', 'UDP']:
+                    if hasattr(packet[protocol.lower()], 'dstport'):
+                        port = packet[protocol.lower()].dstport
+                        port_count[f"{protocol}:{port}"] += 1
+            
+            # IP communication analysis
+            if hasattr(packet, 'ip'):
+                src_ip = packet.ip.src
+                dst_ip = packet.ip.dst
+                ip_communications[f"{src_ip} -> {dst_ip}"] += 1
+        
+        cap.close()
+        
+        # Display results
+        print(f"Total packets analyzed: {packet_count}")
+        print(f"Analysis completed at: {datetime.now()}")
+        print()
+        
+        print("Protocol Distribution:")
+        for protocol, count in sorted(protocol_count.items(), key=lambda x: x[1], reverse=True):
+            percentage = (count / packet_count) * 100
+            print(f"  {protocol}: {count} packets ({percentage:.1f}%)")
+        
+        print("\\nTop 10 Port Communications:")
+        for port_proto, count in sorted(port_count.items(), key=lambda x: x[1], reverse=True)[:10]:
+            print(f"  {port_proto}: {count} connections")
+        
+        print("\\nTop 10 IP Communications:")
+        for comm, count in sorted(ip_communications.items(), key=lambda x: x[1], reverse=True)[:10]:
+            print(f"  {comm}: {count} packets")
+            
+    except Exception as e:
+        print(f"Error analyzing traffic: {e}")
+
+if __name__ == "__main__":
+    pcap_file = input("Enter the path to your .pcap file: ")
+    analyze_traffic_categories(pcap_file)`
+      },
+      'anomaly_detector': {
+        title: 'Network Anomaly Detection Tool',
+        code: `import pyshark
+import statistics
+from collections import defaultdict, deque
+from datetime import datetime, timedelta
+
+class NetworkAnomalyDetector:
+    def __init__(self, threshold_multiplier=2.5):
+        self.threshold_multiplier = threshold_multiplier
+        self.packet_sizes = []
+        self.packet_intervals = []
+        self.connection_counts = defaultdict(int)
+        self.port_access_counts = defaultdict(int)
+        self.last_packet_time = None
+        
+    def analyze_packet(self, packet):
+        """Analyze individual packet for anomalies"""
+        anomalies = []
+        
+        # Packet size analysis
+        if hasattr(packet, 'length'):
+            packet_size = int(packet.length)
+            self.packet_sizes.append(packet_size)
+            
+            if len(self.packet_sizes) > 100:  # Keep sliding window
+                self.packet_sizes.pop(0)
+                
+            if len(self.packet_sizes) > 10:
+                avg_size = statistics.mean(self.packet_sizes)
+                std_size = statistics.stdev(self.packet_sizes)
+                
+                if packet_size > avg_size + (self.threshold_multiplier * std_size):
+                    anomalies.append(f"Unusually large packet: {packet_size} bytes")
+        
+        # Timing analysis
+        if hasattr(packet, 'sniff_time'):
+            current_time = packet.sniff_time
+            if self.last_packet_time:
+                interval = (current_time - self.last_packet_time).total_seconds()
+                self.packet_intervals.append(interval)
+                
+                if len(self.packet_intervals) > 100:
+                    self.packet_intervals.pop(0)
+                    
+                if len(self.packet_intervals) > 10 and interval > 0:
+                    avg_interval = statistics.mean(self.packet_intervals)
+                    if interval < avg_interval / 10:  # Very rapid packets
+                        anomalies.append(f"Rapid packet transmission: {interval:.4f}s interval")
+            
+            self.last_packet_time = current_time
+        
+        # Connection pattern analysis
+        if hasattr(packet, 'ip'):
+            src_ip = packet.ip.src
+            dst_ip = packet.ip.dst
+            connection_key = f"{src_ip}->{dst_ip}"
+            self.connection_counts[connection_key] += 1
+            
+            # Check for excessive connections from single source
+            if self.connection_counts[connection_key] > 100:
+                anomalies.append(f"High connection count from {src_ip} to {dst_ip}")
+        
+        # Port scanning detection
+        if hasattr(packet, 'tcp'):
+            if hasattr(packet.tcp, 'dstport'):
+                port = packet.tcp.dstport
+                src_ip = packet.ip.src
+                port_key = f"{src_ip}:{port}"
+                self.port_access_counts[port_key] += 1
+                
+                # Check for port scanning behavior
+                unique_ports = len([k for k in self.port_access_counts.keys() if k.startswith(src_ip)])
+                if unique_ports > 20:
+                    anomalies.append(f"Potential port scan from {src_ip}: {unique_ports} ports accessed")
+        
+        return anomalies
+    
+    def detect_anomalies(self, pcap_file):
+        """Main anomaly detection function"""
+        print(f"Starting anomaly detection on: {pcap_file}")
+        print("="*60)
+        
+        try:
+            cap = pyshark.FileCapture(pcap_file)
+            total_anomalies = []
+            packet_count = 0
+            
+            for packet in cap:
+                packet_count += 1
+                anomalies = self.analyze_packet(packet)
+                
+                if anomalies:
+                    for anomaly in anomalies:
+                        total_anomalies.append(f"Packet {packet_count}: {anomaly}")
+                        print(f"[ANOMALY] Packet {packet_count}: {anomaly}")
+                
+                # Progress indicator
+                if packet_count % 1000 == 0:
+                    print(f"Processed {packet_count} packets...")
+            
+            cap.close()
+            
+            print(f"\\nAnalysis complete!")
+            print(f"Total packets processed: {packet_count}")
+            print(f"Total anomalies detected: {len(total_anomalies)}")
+            
+            if total_anomalies:
+                print("\\nSummary of anomalies:")
+                for anomaly in total_anomalies[-10:]:  # Show last 10
+                    print(f"  - {anomaly}")
+            else:
+                print("No anomalies detected in the traffic.")
+                
+        except Exception as e:
+            print(f"Error during anomaly detection: {e}")
+
+if __name__ == "__main__":
+    detector = NetworkAnomalyDetector()
+    pcap_file = input("Enter the path to your .pcap file: ")
+    detector.detect_anomalies(pcap_file)`
+      },
+      'syn_flood_detector': {
+        title: 'SYN Flood Detection Tool',
+        code: `import pyshark
+from collections import defaultdict, deque
+from datetime import datetime, timedelta
+import time
+
+class SYNFloodDetector:
+    def __init__(self, threshold=50, time_window=60):
+        """
+        Initialize SYN flood detector
+        
+        Args:
+            threshold: Number of SYN packets to trigger alert
+            time_window: Time window in seconds to analyze
+        """
+        self.threshold = threshold
+        self.time_window = time_window
+        self.syn_packets = defaultdict(deque)
+        self.alerts_sent = set()
+        
+    def is_syn_packet(self, packet):
+        """Check if packet is a SYN packet"""
+        try:
+            if hasattr(packet, 'tcp'):
+                tcp_flags = packet.tcp.flags
+                # SYN flag is set (0x02) and ACK flag is not set
+                return tcp_flags == '0x00000002'
+            return False
+        except:
+            return False
+    
+    def analyze_packet(self, packet):
+        """Analyze packet for SYN flood patterns"""
+        if not self.is_syn_packet(packet):
+            return None
+            
+        try:
+            src_ip = packet.ip.src
+            dst_ip = packet.ip.dst
+            dst_port = packet.tcp.dstport
+            timestamp = packet.sniff_time
+            
+            # Create unique key for this attack vector
+            attack_key = f"{src_ip}->{dst_ip}:{dst_port}"
+            
+            # Add timestamp to the deque for this attack vector
+            self.syn_packets[attack_key].append(timestamp)
+            
+            # Remove old entries outside time window
+            cutoff_time = timestamp - timedelta(seconds=self.time_window)
+            while (self.syn_packets[attack_key] and 
+                   self.syn_packets[attack_key][0] < cutoff_time):
+                self.syn_packets[attack_key].popleft()
+            
+            # Check if threshold is exceeded
+            syn_count = len(self.syn_packets[attack_key])
+            
+            if syn_count >= self.threshold and attack_key not in self.alerts_sent:
+                self.alerts_sent.add(attack_key)
+                return {
+                    'type': 'SYN_FLOOD_DETECTED',
+                    'src_ip': src_ip,
+                    'dst_ip': dst_ip,
+                    'dst_port': dst_port,
+                    'syn_count': syn_count,
+                    'time_window': self.time_window,
+                    'timestamp': timestamp
+                }
+                
+        except Exception as e:
+            print(f"Error analyzing packet: {e}")
+            
+        return None
+    
+    def detect_syn_floods(self, pcap_file):
+        """Main detection function for analyzing pcap file"""
+        print(f"Starting SYN flood detection on: {pcap_file}")
+        print(f"Threshold: {self.threshold} SYN packets in {self.time_window} seconds")
+        print("="*60)
+        
+        try:
+            # Use display filter to only capture SYN packets
+            cap = pyshark.FileCapture(
+                pcap_file, 
+                display_filter='tcp.flags.syn==1 and tcp.flags.ack==0'
+            )
+            
+            packet_count = 0
+            alerts = []
+            
+            for packet in cap:
+                packet_count += 1
+                alert = self.analyze_packet(packet)
+                
+                if alert:
+                    alerts.append(alert)
+                    print(f"\\n🚨 [ALERT] SYN FLOOD DETECTED!")
+                    print(f"   Source IP: {alert['src_ip']}")
+                    print(f"   Target: {alert['dst_ip']}:{alert['dst_port']}")
+                    print(f"   SYN Count: {alert['syn_count']} packets")
+                    print(f"   Time Window: {alert['time_window']} seconds")
+                    print(f"   Detected at: {alert['timestamp']}")
+                    print(f"   Threat Level: {'HIGH' if alert['syn_count'] > 100 else 'MEDIUM'}")
+                
+                # Progress indicator
+                if packet_count % 100 == 0:
+                    print(f"Processed {packet_count} SYN packets...")
+            
+            cap.close()
+            
+            # Summary report
+            print(f"\\n" + "="*60)
+            print(f"DETECTION SUMMARY")
+            print(f"="*60)
+            print(f"Total SYN packets analyzed: {packet_count}")
+            print(f"SYN flood attacks detected: {len(alerts)}")
+            
+            if alerts:
+                print(f"\\nAttack Details:")
+                for i, alert in enumerate(alerts, 1):
+                    print(f"  {i}. {alert['src_ip']} -> {alert['dst_ip']}:{alert['dst_port']}")
+                    print(f"     SYN Count: {alert['syn_count']}")
+                    
+                # Recommendations
+                print(f"\\n🛡️  RECOMMENDED ACTIONS:")
+                print(f"   1. Block source IPs showing flood behavior")
+                print(f"   2. Implement rate limiting on affected ports")
+                print(f"   3. Enable SYN cookies on target servers")
+                print(f"   4. Monitor network for continued attacks")
+            else:
+                print(f"✅ No SYN flood attacks detected in the traffic.")
+                
+        except Exception as e:
+            print(f"Error during SYN flood detection: {e}")
+    
+    def real_time_monitor(self, interface='eth0'):
+        """Real-time SYN flood monitoring (requires live capture)"""
+        print(f"Starting real-time SYN flood monitoring on {interface}")
+        print(f"Press Ctrl+C to stop...")
+        
+        try:
+            cap = pyshark.LiveCapture(
+                interface=interface,
+                display_filter='tcp.flags.syn==1 and tcp.flags.ack==0'
+            )
+            
+            for packet in cap.sniff_continuously():
+                alert = self.analyze_packet(packet)
+                if alert:
+                    print(f"\\n🚨 REAL-TIME ALERT: SYN flood from {alert['src_ip']}")
+                    
+        except KeyboardInterrupt:
+            print("\\nMonitoring stopped.")
+        except Exception as e:
+            print(f"Error in real-time monitoring: {e}")
+
+if __name__ == "__main__":
+    detector = SYNFloodDetector(threshold=50, time_window=60)
+    
+    print("SYN Flood Detection Tool")
+    print("1. Analyze PCAP file")
+    print("2. Real-time monitoring")
+    
+    choice = input("Select option (1 or 2): ")
+    
+    if choice == '1':
+        pcap_file = input("Enter the path to your .pcap file: ")
+        detector.detect_syn_floods(pcap_file)
+    elif choice == '2':
+        interface = input("Enter network interface (default: eth0): ").strip()
+        if not interface:
+            interface = 'eth0'
+        detector.real_time_monitor(interface)
+    else:
+        print("Invalid choice!")`
+      }
+    };
+
+    function showToolCode(toolName) {
+      const tool = toolCode[toolName];
+      if (tool) {
+        document.getElementById('modalTitle').textContent = tool.title;
+        document.getElementById('codeContent').textContent = tool.code;
+        document.getElementById('codeModal').classList.remove('hidden');
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('codeModal').classList.add('hidden');
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('codeModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
+  </script>
 
 </body>
 </html>
