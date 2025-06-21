@@ -2,71 +2,181 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Wireshark Project - Sarju Kharel</title>
+  <title>Wireshark Final Project - Sarju Kharel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .tool-card {
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    .tool-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans leading-relaxed tracking-wide">
+<body class="bg-gray-50 text-gray-900 font-sans">
 
-  <header class="bg-blue-900 text-white p-6 shadow">
-    <h1 class="text-3xl font-bold">Wireshark Deep Dive: Detecting Malicious Network Traffic</h1>
-    <p class="mt-2">Final Project Report by Sarju Kharel</p>
-    <p class="text-sm">🌐 <a href="https://sarjukharel.github.io/tryyyyyyy/" class="underline text-yellow-300">sarjukharel.github.io/tryyyyyyy</a></p>
-    <p class="text-sm">📽️ <a href="https://youtu.be/qTaOZrDnMzQ?si=Bq7QtMnAme_3CMxR" class="underline text-yellow-300">Watch Demo Video</a></p>
+  <header class="gradient-bg text-white p-8 shadow-lg">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl font-bold mb-2">Wireshark Deep Dive Project</h1>
+      <p class="text-xl opacity-90">Network Security Analysis & Threat Detection</p>
+      <p class="mt-2 text-sm opacity-75">By Sarju Kharel</p>
+    </div>
   </header>
 
-  <main class="p-6 max-w-4xl mx-auto space-y-10">
+  <main class="max-w-4xl mx-auto p-6">
 
-    <section>
-      <h2 class="text-2xl font-bold">1. Idea Sourcing and Background</h2>
-      <p>This project was based on my Week 5 idea to do a deep dive into Wireshark and packet sniffing. My goal was to understand how cybersecurity professionals detect malicious traffic and build my own basic tools for analysis. I wanted to simulate threats and capture them using Wireshark, then analyze them using Python.</p>
+    <section class="mb-8 bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-2xl font-semibold text-blue-800 mb-4 flex items-center">
+        <span class="mr-2">1️⃣</span> Idea Sourcing and Background
+      </h2>
+      <p class="text-gray-700 leading-relaxed">This project was based on my Week 5 idea to do a deep dive into Wireshark and packet sniffing. My goal was to understand how cybersecurity professionals detect malicious traffic and build my own basic tools for analysis. I wanted to simulate threats and capture them using Wireshark, then analyze them using Python.</p>
     </section>
 
-    <section>
-      <h2 class="text-2xl font-bold">2. Project Overview and Goals</h2>
-      <p>This project simulates SYN floods and port scans, captures `.pcap` traffic using Wireshark, and processes it using PyShark scripts. It aims to teach network-level analysis, threat detection, and documentation/presentation of results through a GitHub site and demo video.</p>
+    <section class="mb-8 bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-2xl font-semibold text-blue-800 mb-4 flex items-center">
+        <span class="mr-2">2️⃣</span> Project Overview and Goals
+      </h2>
+      <p class="text-gray-700 leading-relaxed">This project simulates SYN floods and port scans, captures <code class="bg-gray-100 px-2 py-1 rounded">.pcap</code> traffic using Wireshark, and processes it using PyShark scripts. It aims to teach network-level analysis, threat detection, and documentation/presentation of results through a GitHub site and demo video.</p>
     </section>
 
-    <section>
-      <h2 class="text-2xl font-bold">3. PRD Summary and Stretch Goals</h2>
-      <ul class="list-disc pl-6">
-        <li>Use Wireshark to capture malicious patterns</li>
-        <li>Create scripts to detect threats from `.pcap` files</li>
-        <li>Simulate network scans using port scanner</li>
-        <li>Document the process, build a website, and record a walkthrough</li>
-        <li><strong>Stretch Goal:</strong> Real-time or batch analysis with Python</li>
-      </ul>
+    <section class="mb-8 bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-2xl font-semibold text-blue-800 mb-4 flex items-center">
+        <span class="mr-2">3️⃣</span> PRD Summary and Stretch Goals
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-2">Core Objectives:</h3>
+          <ul class="list-disc pl-6 text-gray-700 space-y-1">
+            <li>Use Wireshark to capture malicious patterns</li>
+            <li>Create scripts to detect threats from <code class="bg-gray-100 px-1 rounded">.pcap</code> files</li>
+            <li>Simulate network scans using port scanner</li>
+            <li>Document the process and build a website</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-2">Stretch Goals:</h3>
+          <ul class="list-disc pl-6 text-gray-700 space-y-1">
+            <li><strong>Real-time analysis</strong> with Python</li>
+            <li><strong>Batch processing</strong> capabilities</li>
+            <li><strong>Advanced threat detection</strong> algorithms</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2 class="text-2xl font-bold">4. Tools and Technologies Used</h2>
-      <ul class="list-disc pl-6">
-        <li>Wireshark – Deep packet inspection</li>
-        <li>PyShark – Python wrapper for TShark</li>
-        <li>TShark – Command-line analysis</li>
-        <li>Python – Script building</li>
-        <li>Kali Linux – Simulated attack environment</li>
-        <li>GitHub – Project publishing</li>
-        <li>YouTube – Demo video hosting</li>
-      </ul>
+    <section class="mb-8 bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-2xl font-semibold text-blue-800 mb-4 flex items-center">
+        <span class="mr-2">4️⃣</span> Tools and Technologies Used
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="bg-blue-50 p-4 rounded-lg">
+          <h3 class="font-semibold text-blue-800">Analysis Tools</h3>
+          <ul class="text-sm text-gray-700 mt-2 space-y-1">
+            <li>• Wireshark – Deep packet inspection</li>
+            <li>• PyShark – Python wrapper for TShark</li>
+            <li>• TShark – Command-line analysis</li>
+          </ul>
+        </div>
+        <div class="bg-green-50 p-4 rounded-lg">
+          <h3 class="font-semibold text-green-800">Development</h3>
+          <ul class="text-sm text-gray-700 mt-2 space-y-1">
+            <li>• Python – Script building</li>
+            <li>• Kali Linux – Attack simulation</li>
+            <li>• GitHub – Version control</li>
+          </ul>
+        </div>
+        <div class="bg-purple-50 p-4 rounded-lg">
+          <h3 class="font-semibold text-purple-800">Documentation</h3>
+          <ul class="text-sm text-gray-700 mt-2 space-y-1">
+            <li>• GitHub Pages – Website hosting</li>
+            <li>• YouTube – Demo video</li>
+            <li>• Markdown – Documentation</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2 class="text-2xl font-bold">5. Project Implementation</h2>
-      <ol class="list-decimal pl-6">
-        <li><strong>Packet Capture:</strong> Simulated scans using Kali Linux tools, captured traffic with Wireshark.</li>
-        <li><strong>Script Building:</strong> Developed Python scripts to parse and alert on `.pcap` traffic.</li>
-        <li><strong>Documentation:</strong> Screenshots, explanations, and filtered examples included in the report.</li>
-        <li><strong>Publishing:</strong> Built this website and recorded a YouTube demo.</li>
-      </ol>
+    <section class="mb-8 bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-2xl font-semibold text-blue-800 mb-4 flex items-center">
+        <span class="mr-2">🛠️</span> Custom Analysis Tools
+      </h2>
+      <p class="text-gray-700 mb-4">I developed several specialized Python tools for network traffic analysis:</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="tool-card bg-gradient-to-br from-red-50 to-red-100 p-4 rounded-lg border border-red-200">
+          <h3 class="font-semibold text-red-800 mb-2">🔍 Traffic Category Analyzer</h3>
+          <p class="text-sm text-gray-700 mb-3">Categorizes network traffic by protocol and identifies patterns</p>
+          <a href="https://github.com/sarjukharel/tryyyyyyy/blob/main/traffic_category_analyzer.py" 
+             class="inline-block bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700 transition-colors">
+            View Code →
+          </a>
+        </div>
+        <div class="tool-card bg-gradient-to-br from-yellow-50 to-yellow-100 p-4 rounded-lg border border-yellow-200">
+          <h3 class="font-semibold text-yellow-800 mb-2">⚠️ Anomaly Detection</h3>
+          <p class="text-sm text-gray-700 mb-3">Detects unusual network behavior and traffic anomalies</p>
+          <a href="https://github.com/sarjukharel/tryyyyyyy/blob/main/detect_anomalies.py" 
+             class="inline-block bg-yellow-600 text-white px-3 py-1 rounded text-sm hover:bg-yellow-700 transition-colors">
+            View Code →
+          </a>
+        </div>
+        <div class="tool-card bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200">
+          <h3 class="font-semibold text-purple-800 mb-2">🚨 SYN Flood Detector</h3>
+          <p class="text-sm text-gray-700 mb-3">Specialized tool for detecting SYN flood attacks</p>
+          <a href="https://github.com/sarjukharel/tryyyyyyy/blob/main/syn_flood_detection_tool.py" 
+             class="inline-block bg-purple-600 text-white px-3 py-1 rounded text-sm hover:bg-purple-700 transition-colors">
+            View Code →
+          </a>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2 class="text-2xl font-bold">6. Code Explanation</h2>
+    <section class="mb-8 bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-2xl font-semibold text-blue-800 mb-4 flex items-center">
+        <span class="mr-2">5️⃣</span> Project Implementation
+      </h2>
+      <div class="space-y-4">
+        <div class="flex items-start">
+          <div class="bg-blue-100 rounded-full p-2 mr-4 mt-1">
+            <span class="text-blue-800 font-bold">1</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Packet Capture & Simulation</h3>
+            <p class="text-gray-700 text-sm">Simulated network attacks using Kali Linux tools and captured traffic with Wireshark for analysis.</p>
+          </div>
+        </div>
+        <div class="flex items-start">
+          <div class="bg-green-100 rounded-full p-2 mr-4 mt-1">
+            <span class="text-green-800 font-bold">2</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Script Development</h3>
+            <p class="text-gray-700 text-sm">Built Python scripts to parse <code class="bg-gray-100 px-1 rounded">.pcap</code> files and generate security alerts.</p>
+          </div>
+        </div>
+        <div class="flex items-start">
+          <div class="bg-purple-100 rounded-full p-2 mr-4 mt-1">
+            <span class="text-purple-800 font-bold">3</span>
+          </div>
+          <div>
+            <h3 class="font-semibold text-gray-800">Documentation & Publishing</h3>
+            <p class="text-gray-700 text-sm">Created comprehensive documentation with screenshots and built this website with demo video.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <h3 class="text-xl font-semibold mt-4">port_scanner.py</h3>
-      <pre class="bg-gray-200 p-4 rounded text-sm overflow-auto">
-import socket
+    <section class="mb-8 bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-2xl font-semibold text-blue-800 mb-4 flex items-center">
+        <span class="mr-2">6️⃣</span> Code Explanation
+      </h2>
+      <div class="space-y-6">
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-2">📡 Port Scanner Tool</h3>
+          <pre class="bg-gray-900 text-green-400 p-4 rounded-lg text-sm overflow-x-auto"><code>import socket
 
 target = input("Enter target IP: ")
 for port in range(20, 1025):
@@ -75,14 +185,14 @@ for port in range(20, 1025):
     result = s.connect_ex((target, port))
     if result == 0:
         print(f"Port {port} is open")
-    s.close()
-      </pre>
+    s.close()</code></pre>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-2">🔍 Network Analyzer</h3>
+          <pre class="bg-gray-900 text-green-400 p-4 rounded-lg text-sm overflow-x-auto"><code>import pyshark
 
-      <h3 class="text-xl font-semibold mt-4">network_analyzer.py</h3>
-      <pre class="bg-gray-200 p-4 rounded text-sm overflow-auto">
-import pyshark
-
-cap = pyshark.FileCapture('sample.pcap', display_filter='tcp.flags.syn==1 and tcp.flags.ack==0')
+cap = pyshark.FileCapture('sample.pcap', 
+                         display_filter='tcp.flags.syn==1 and tcp.flags.ack==0')
 
 syn_count = {}
 for pkt in cap:
@@ -91,52 +201,130 @@ for pkt in cap:
 
 for ip, count in syn_count.items():
     if count > 50:
-        print(f"[ALERT] Possible SYN flood from {ip}: {count} SYN packets")
-      </pre>
+        print(f"[ALERT] Possible SYN flood from {ip}: {count} SYN packets")</code></pre>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2 class="text-2xl font-bold">7. Challenges and Reflection</h2>
-      <p>This was my first time using Wireshark and working with `.pcap` files. I found it very hard at first, but I learned a lot using ChatGPT and Claude AI. I now understand how SYN packets work and how a scanner or flood attack appears in packet logs. I also improved my coding, filtering, and documentation skills.</p>
+    <section class="mb-8 bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-2xl font-semibold text-blue-800 mb-4 flex items-center">
+        <span class="mr-2">7️⃣</span> Challenges and Reflection
+      </h2>
+      <div class="bg-gray-50 p-4 rounded-lg">
+        <p class="text-gray-700 leading-relaxed">This was my first time using Wireshark and working with <code class="bg-gray-200 px-1 rounded">.pcap</code> files. I found it very challenging at first, but I learned extensively using ChatGPT and Claude AI. Through this project, I now understand how SYN packets work and how scanner or flood attacks appear in packet logs. I also significantly improved my coding, filtering, and documentation skills.</p>
+      </div>
     </section>
 
-    <section>
-      <h2 class="text-2xl font-bold">8. AI Assistance and Resources</h2>
-      <ul class="list-disc pl-6">
-        <li><a href="https://chatgpt.com/share/684c395f-8930-8000-8777-a26b1e062803" class="text-blue-600 underline">ChatGPT Conversation</a></li>
-        <li><a href="https://claude.ai/share/281c7144-b1cd-4678-8baf-12284f804cde" class="text-blue-600 underline">Claude AI Support</a></li>
-      </ul>
+    <section class="mb-8 bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-2xl font-semibold text-blue-800 mb-4 flex items-center">
+        <span class="mr-2">8️⃣</span> AI Assistance and Resources
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-green-50 p-4 rounded-lg">
+          <h3 class="font-semibold text-green-800 mb-2">🤖 AI Tools Used</h3>
+          <ul class="text-sm text-gray-700 space-y-2">
+            <li>• <a href="https://chatgpt.com/canvas/shared/6856b45df99881918cc7cf14837e25e4" 
+                   class="text-blue-600 hover:underline">ChatGPT Project Support</a></li>
+            <li>• Claude AI for prompting and code explanations</li>
+            <li>• AI-assisted debugging and optimization</li>
+          </ul>
+        </div>
+        <div class="bg-blue-50 p-4 rounded-lg">
+          <h3 class="font-semibold text-blue-800 mb-2">📚 Learning Resources</h3>
+          <ul class="text-sm text-gray-700 space-y-2">
+            <li>• Wireshark documentation</li>
+            <li>• PyShark tutorials</li>
+            <li>• Network security best practices</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2 class="text-2xl font-bold">9. How I Ensured Full Marks</h2>
-      <ul class="list-disc pl-6">
-        <li>✔️ Submitted idea and project overview</li>
-        <li>✔️ Wrote and uploaded PRD</li>
-        <li>✔️ Completed extension (packet analyzer script)</li>
-        <li>✔️ Uploaded documentation + screenshots</li>
-        <li>✔️ Built a complete GitHub Pages site</li>
-        <li>✔️ Recorded and submitted a demo video</li>
-      </ul>
+    <section class="mb-8 bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-2xl font-semibold text-blue-800 mb-4 flex items-center">
+        <span class="mr-2">9️⃣</span> How I Ensured Full Marks
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="space-y-2">
+          <div class="flex items-center">
+            <span class="text-green-600 mr-2">✅</span>
+            <span class="text-gray-700">Submitted idea and project overview</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-green-600 mr-2">✅</span>
+            <span class="text-gray-700">Wrote and uploaded PRD</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-green-600 mr-2">✅</span>
+            <span class="text-gray-700">Completed extension (packet analyzer script)</span>
+          </div>
+        </div>
+        <div class="space-y-2">
+          <div class="flex items-center">
+            <span class="text-green-600 mr-2">✅</span>
+            <span class="text-gray-700">Uploaded documentation + screenshots</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-green-600 mr-2">✅</span>
+            <span class="text-gray-700">Built a complete GitHub Pages site</span>
+          </div>
+          <div class="flex items-center">
+            <span class="text-green-600 mr-2">✅</span>
+            <span class="text-gray-700">Recorded and submitted demo video</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2 class="text-2xl font-bold">10. Submission Links</h2>
-      <ul class="list-disc pl-6">
-        <li>📁 GitHub Repo: <a href="https://github.com/sarjukharel/tryyyyyyy" class="text-blue-600 underline">github.com/sarjukharel/tryyyyyyy</a></li>
-        <li>🌐 Website: <a href="https://sarjukharel.github.io/tryyyyyyy/" class="text-blue-600 underline">sarjukharel.github.io/tryyyyyyy</a></li>
-        <li>📽️ Demo Video: <a href="https://youtu.be/qTaOZrDnMzQ?si=Bq7QtMnAme_3CMxR" class="text-blue-600 underline">Watch on YouTube</a></li>
-      </ul>
-
-      <div class="mt-4">
-        <iframe class="w-full aspect-video rounded shadow" src="https://www.youtube.com/embed/qTaOZrDnMzQ?si=Bq7QtMnAme_3CMxR" frameborder="0" allowfullscreen></iframe>
+    <section class="mb-8 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg shadow-md p-6">
+      <h2 class="text-2xl font-semibold text-blue-800 mb-4 flex items-center">
+        <span class="mr-2">🔗</span> Submission Links
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="space-y-3">
+          <a href="https://github.com/sarjukharel/tryyyyyyy" 
+             class="flex items-center p-3 bg-white rounded-lg shadow hover:shadow-md transition-shadow">
+            <span class="text-2xl mr-3">📁</span>
+            <div>
+              <div class="font-semibold text-gray-800">GitHub Repository</div>
+              <div class="text-sm text-gray-600">Complete source code</div>
+            </div>
+          </a>
+          <a href="https://sarjukharel.github.io/tryyyyyyy" 
+             class="flex items-center p-3 bg-white rounded-lg shadow hover:shadow-md transition-shadow">
+            <span class="text-2xl mr-3">🌐</span>
+            <div>
+              <div class="font-semibold text-gray-800">Project Website</div>
+              <div class="text-sm text-gray-600">Live documentation site</div>
+            </div>
+          </a>
+        </div>
+        <div class="space-y-3">
+          <a href="https://www.youtube.com/watch?v=qTaOZrDnMzQ" 
+             class="flex items-center p-3 bg-white rounded-lg shadow hover:shadow-md transition-shadow">
+            <span class="text-2xl mr-3">📽️</span>
+            <div>
+              <div class="font-semibold text-gray-800">Demo Video</div>
+              <div class="text-sm text-gray-600">YouTube walkthrough</div>
+            </div>
+          </a>
+          <a href="https://sarjukharel.github.io/tryyyyyyy/my%20assignments/Wiree.html" 
+             class="flex items-center p-3 bg-white rounded-lg shadow hover:shadow-md transition-shadow">
+            <span class="text-2xl mr-3">📄</span>
+            <div>
+              <div class="font-semibold text-gray-800">Assignment Page</div>
+              <div class="text-sm text-gray-600">Detailed project report</div>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <footer class="bg-blue-900 text-white text-center py-4 mt-10">
-    &copy; 2025 Sarju Kharel | Final Project – Wireshark Network Analysis
+  <footer class="bg-gray-800 text-white text-center py-6 mt-12">
+    <p class="text-sm">© 2025 Sarju Kharel | Final Project – Wireshark Network Analysis</p>
+    <p class="text-xs text-gray-400 mt-1">Cybersecurity • Network Analysis • Threat Detection</p>
   </footer>
 
 </body>
